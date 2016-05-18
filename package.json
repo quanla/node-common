@@ -2,7 +2,12 @@
   "name": "node-common",
   "version": "1.0.0",
   "description": "QuanLe's common utilities for nodejs",
-  "dependencies": {
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {},
+  "gitHead": "119f23463d5b2e9c8496b87553cbffda943e114e",
+  "readme": "ERROR: No README data found!",
+  "_id": "node-common@1.0.0",
+  "scripts": {},
+  "_shasum": "b2292d413777c827ed5b87022dd756698d50788b",
+  "_from": "node-common@latest"
 }
