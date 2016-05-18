@@ -1,0 +1,8 @@
+{
+  "name": "node-common",
+  "version": "1.0.0",
+  "description": "QuanLe's common utilities for nodejs",
+  "dependencies": {
+  },
+  "devDependencies": {}
+}
