@@ -1373,22 +1373,19 @@ Watchers.watcher = function(onChange) {
 };
 
 try {
-    //module.exports = {
-    //    ObjectUtil: ObjectUtil,
-    //    Cols: Cols,
-    //    StringUtil: StringUtil,
-    //    RandomUtil: RandomUtil
-    //};
-    global.Fs = Fs;
-    global.Async = Async;
-    global.Cols = Cols;
-    global.ObjectUtil = ObjectUtil;
-    global.StringUtil = StringUtil;
-    global.RandomUtil = RandomUtil;
-    global.RegexUtil = RegexUtil;
-    global.MathUtil = MathUtil;
-    global.DateUtil = DateUtil;
-    global.Watchers = Watchers;
+    module.exports = {
+        toGlobal: function() {
+            global.Fs = Fs;
+            global.Async = Async;
+            global.Cols = Cols;
+            global.ObjectUtil = ObjectUtil;
+            global.StringUtil = StringUtil;
+            global.RandomUtil = RandomUtil;
+            global.RegexUtil = RegexUtil;
+            global.MathUtil = MathUtil;
+            global.DateUtil = DateUtil;
+            global.Watchers = Watchers;
+        }
+    };
 } catch (e) {
 }
-
