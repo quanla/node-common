@@ -665,7 +665,7 @@ Cols.yield = function(col, func) {
     for (var i in col) {
         var e = func(col[i]);
         if (e != null) {
-            ret.push(e);
+            ret[i] = e;
         }
     }
     return ret;
