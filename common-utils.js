@@ -119,8 +119,24 @@ DateUtil.format2digits = function(num) {
     return num;
 };
 DateUtil.format = function(date, format) {
+
+    var months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+    ];
     return format
         .replace(/yyyy/g, date.getFullYear())
+        .replace(/MMM/g, months[date.getMonth()])
         .replace(/MM/g, DateUtil.format2digits(date.getMonth()+1))
         .replace(/dd/g, DateUtil.format2digits(date.getDate()))
         .replace(/HH/g, DateUtil.format2digits(date.getHours()))
