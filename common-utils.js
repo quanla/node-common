@@ -1388,6 +1388,13 @@ Watchers.watcher = function(onChange) {
     }
 };
 
+var RangeUtil = {};
+RangeUtil.inside = function(pos, ranges) {
+    return Cols.hasAny(ranges, function(r) {
+        return (pos > r.from && pos < r.to);
+    });
+};
+
 try {
     module.exports = {
         toGlobal: function() {
@@ -1401,6 +1408,7 @@ try {
             global.MathUtil = MathUtil;
             global.DateUtil = DateUtil;
             global.Watchers = Watchers;
+            global.RangeUtil = RangeUtil;
         },
         Fs: Fs,
         Async: Async,
@@ -1411,6 +1419,7 @@ try {
         RegexUtil: RegexUtil,
         MathUtil: MathUtil,
         DateUtil: DateUtil,
+        RangeUtil: RangeUtil,
         Watchers: Watchers
     };
 } catch (e) {
