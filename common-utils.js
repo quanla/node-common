@@ -1401,7 +1401,17 @@ try {
             global.MathUtil = MathUtil;
             global.DateUtil = DateUtil;
             global.Watchers = Watchers;
-        }
+        },
+        Fs: Fs,
+        Async: Async,
+        Cols: Cols,
+        ObjectUtil: ObjectUtil,
+        StringUtil: StringUtil,
+        RandomUtil: RandomUtil,
+        RegexUtil: RegexUtil,
+        MathUtil: MathUtil,
+        DateUtil: DateUtil,
+        Watchers: Watchers
     };
 } catch (e) {
 }
