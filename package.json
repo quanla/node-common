@@ -2,7 +2,11 @@
   "name": "node-common",
   "version": "1.3.0",
   "description": "QuanLe's common utilities for nodejs",
-  "dependencies": {},
+  "dependencies": {
+    "chokidar": "^1.5.0",
+    "glob": "^7.0.3",
+    "node-sass": "^3.7.0"
+  },
   "devDependencies": {},
   "gitHead": "119f23463d5b2e9c8496b87553cbffda943e114e",
   "readme": "ERROR: No README data found!",
