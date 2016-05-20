@@ -1394,6 +1394,12 @@ RangeUtil.inside = function(pos, ranges) {
         return (pos > r.from && pos < r.to);
     });
 };
+RangeUtil.rangeTouch = function(r1, r2) {
+    return !(r1.to <= r2.from || r1.from >= r2.to);
+};
+RangeUtil.length = function(range) {
+    return range.to - range.from;
+};
 
 try {
     module.exports = {
