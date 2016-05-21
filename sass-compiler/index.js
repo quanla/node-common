@@ -2,6 +2,7 @@ var Async = require("node-common/common-utils").Async;
 var Fs    = require("node-common/common-utils").Fs;
 
 var path = require("path");
+var fs = require("fs");
 
 module.exports = function(options) {
 
@@ -12,7 +13,6 @@ module.exports = function(options) {
         return function() {
             sass.render({file: "./" + fromFile}, function(error, result) {
                 if (!error) {
-                    var fs = require("fs");
                     fs.writeFileSync("./" + toFile, result.css);
 
                     Fs.invokeAll(onCompileds);
@@ -33,6 +33,8 @@ module.exports = function(options) {
             compileScss();
         })
     ;
+
+    require("mkdirp")(path.dirname(options.into));
 
     var onCompileds = [];
     return {
