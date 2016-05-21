@@ -20,8 +20,7 @@ function findEscapedBlocks(exp) {
     return ret;
 }
 
-
-module.exports = function expF(exp) {
+function expF(exp) {
     var escapedBlocks = findEscapedBlocks(exp);
 
     var decorated = RegexUtil.replaceAll(exp, "[$\\w.]+", function(m) {
@@ -39,4 +38,7 @@ module.exports = function expF(exp) {
     });
     var f = new Function("context", "return " + decorated + ";");
     return function(context) { return f.apply(null, [context]); };
-};
+}
+module.exports = expF;
+
+expF("link.link == currentLink ? 'active':''");

@@ -420,18 +420,24 @@ RegexUtil.replaceAll = function(str, exp, replace) {
         };
     }
 
-    var result = "";
-
-    for (;;) {
-        var m = new RegExp(exp).exec(str);
-        if (m != null) {
-            result += str.substring(0, m.index);
-            result += replace(m);
-            str = str.substring(m.index + m[0].length);
-        } else {
-            return result + str;
+    var index = 0;
+    var regExp = new RegExp(exp, "g");
+    var ret = "";
+    for (var m; (m = regExp.exec(str)) != null;) {
+        if (m.index > index) {
+            ret+=str.substring(index, m.index);
         }
+        //str.substring(0, m.index);
+
+        ret += replace(m);
+
+        index = m.index + m[0].length;
     }
+
+    if (index < str.length) {
+        ret += str.substring(index);
+    }
+    return ret;
 };
 
 RegexUtil.escape = function(str) {
