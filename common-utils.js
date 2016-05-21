@@ -559,6 +559,18 @@ Cols.keepBestFound = function(items, count, orderF) {
     return _.map(sorted.splice(0, count), "item");
 };
 
+Cols.flatten = function(cols) {
+    var ret = [];
+
+    cols.forEach(function(e) {
+        if (e.length && e.forEach) {
+            ret = ret.concat(Cols.flatten(e));
+        } else {
+            ret.push(e);
+        }
+    });
+    return ret;
+}
 Cols.keepOldRefs = function(newCol, oldCol, by) {
     if (oldCol == null) {
         return newCol;

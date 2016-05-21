@@ -8,7 +8,7 @@ module.exports = function(options) {
 
     var chokidar = require("chokidar");
 
-    var injectScss = Async.rapidCallAbsorber(scssPointInjector(options.from, options.into));
+    var injectScss = Async.rapidCallAbsorber(scssPointInjector(options.from, options.into, options.name));
 
     chokidar
         .watch("./" + options.from + "/**/*.scss", {
@@ -24,7 +24,7 @@ module.exports = function(options) {
     injectScss();
 
 
-    function scssPointInjector(from, into) {
+    function scssPointInjector(from, into, name) {
         var glob = require("glob");
 
         return function() {
@@ -33,7 +33,7 @@ module.exports = function(options) {
                 files.sort();
 
                 fs.readFile("./" + into, "utf8", function(err, content) {
-                    content = replaceLinesBetween("// Inject start", "// Inject end", content, Cols.yield(files, function(file) {
+                    content = require("./injector-common").replaceLinesBetween("// Inject" + (name ? " " + name : "") + " start", "// Inject" + (name ? " " + name : "") + " end", content, Cols.yield(files, function(file) {
                         var relativePath = path.relative("/" + path.dirname(into), path.dirname(file.replace(/^\./,""))).replace(/\\/g, "/");
                         return "@import \"" + relativePath + "/" + path.basename(file).replace(/\.scss$/,"") + "\";";
                     }));
@@ -43,16 +43,4 @@ module.exports = function(options) {
         };
     }
 
-    function replaceLinesBetween(lineStart, lineEnd, content, lines) {
-
-        var match = new RegExp(RegexUtil.escape(lineStart) + "(\r?\n)").exec(content);
-        var start = match.index + match[0].length;
-
-        var lineFeed = match[1];
-
-        var m1 = new RegExp(RegexUtil.escape(lineEnd) + "\r?\n").exec(content);
-        var end = m1.index;
-
-        return content.substring(0, start) + Cols.join(lines, lineFeed) + lineFeed + content.substring(end);
-    }
 };

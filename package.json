@@ -8,13 +8,14 @@
     "express-ws": "^2.0.0-rc.1",
     "glob": "^7.0.3",
     "mkdirp": "^0.5.1",
-    "node-sass": "^3.7.0"
+    "node-sass": "^3.7.0",
+    "q": "^1.4.1"
   },
   "devDependencies": {},
   "gitHead": "119f23463d5b2e9c8496b87553cbffda943e114e",
   "readme": "ERROR: No README data found!",
-  "_id": "node-common@1.0.0",
+  "_id": "node-common@1.5.2",
   "scripts": {},
-  "_shasum": "b2292d413777c827ed5b87022dd756698d50788b",
+  "_shasum": "e65cf11ed136f5257a6a6272f6189a0105f60c88",
   "_from": "node-common@latest"
 }
