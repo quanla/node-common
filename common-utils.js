@@ -450,6 +450,11 @@ Fs.p0 = function(p1, a) {
         p1(a);
     }
 };
+Fs.noop = function(ret) {
+    return function() {
+        return ret;
+    }
+};
 Fs.f0 = function(f1, a) {
     return function() {
         return f1(a);
