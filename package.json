@@ -1,6 +1,6 @@
 {
   "name": "node-common",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "QuanLe's common utilities for nodejs",
   "dependencies": {
     "chokidar": "^1.5.0",
@@ -8,6 +8,7 @@
     "express-ws": "^2.0.0-rc.1",
     "glob": "^7.0.3",
     "mkdirp": "^0.5.1",
+    "ng-annotate": "^1.2.1",
     "node-sass": "^3.7.0",
     "q": "^1.4.1"
   },
