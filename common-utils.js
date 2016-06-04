@@ -139,6 +139,7 @@ DateUtil.format = function(date, format) {
         .replace(/MMM/g, months[date.getMonth()])
         .replace(/MM/g, DateUtil.format2digits(date.getMonth()+1))
         .replace(/dd/g, DateUtil.format2digits(date.getDate()))
+        .replace(/d/g, date.getDate())
         .replace(/HH/g, DateUtil.format2digits(date.getHours()))
         .replace(/mm/g, DateUtil.format2digits(date.getMinutes()))
         ;
